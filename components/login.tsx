@@ -24,7 +24,7 @@ export default function Login() {
       console.log({ error });
     }
 
-    router.push('/')
+    router.push('/required-session')
   };
 
   const signUp = async () => {
