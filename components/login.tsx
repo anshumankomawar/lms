@@ -2,19 +2,18 @@
 
 import { useSupabase } from './supabase-provider';
 import React, { useState } from "react";
+import { useRouter } from 'next/navigation';
 
 
 // Supabase auth needs to be triggered client-side
 export default function Login() {
+  const router = useRouter()
   const { supabase, session } = useSupabase();
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
 
   const handleEmailLogin = async (event: any) => {
     event.preventDefault();
-    console.log("handleEmailLogin");
-    console.log("email: ", email);
-    console.log("password: ", password);
 
     const { error } = await supabase.auth.signInWithPassword({
       email: email,
@@ -22,9 +21,10 @@ export default function Login() {
     });
 
     if (error) {
-      console.log("THIS DOESNT SWORK");
       console.log({ error });
     }
+
+    router.push('/')
   };
 
   const signUp = async () => {

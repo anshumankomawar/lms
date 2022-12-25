@@ -6,10 +6,8 @@ import { createServerClient } from '../utils/supabase-server';
 import type { Database } from '../types/supabase';
 import type { SupabaseClient } from '@supabase/auth-helpers-nextjs';
 
-// fonts
-import { gilroy } from '../utils/fonts';
-
 export type TypedSupabaseClient = SupabaseClient<Database>;
+
 
 // do not cache this layout
 export const revalidate = 0;
