@@ -58,9 +58,8 @@ export default function Login() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="email" />
-             <input type="text"
+             <input type="password"
                 id="password"
-                type="password"
                 className="w-full p-2 text-xs border-b border-gray-100 outline-none font-light text-lightcharcoal-200 placeholder:text-slate"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
