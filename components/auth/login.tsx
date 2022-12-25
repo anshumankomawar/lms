@@ -1,6 +1,6 @@
 'use client';
 
-import { useSupabase } from './supabase-provider';
+import { useSupabase } from '../supabase-provider';
 import React, { useState } from "react";
 import { useRouter } from 'next/navigation';
 
@@ -22,33 +22,10 @@ export default function Login() {
 
     if (error) {
       console.log({ error });
-    }
-
-    router.push('/required-session')
+    } else {
+       router.push('/required-session')
+    } 
   };
-
-  const signUp = async () => {
-    const { data, error } = await supabase.auth.signUp({
-      email: 'anshumankomawar@gmail.com',
-      password: 'password',
-    })
-
-    if (error) {
-      console.log({ error });
-    }
-  };
-  
-  const handleLogout = async () => {
-      const { error } = await supabase.auth.signOut();
-
-      if (error) {
-          console.log({ error });
-      }
-  };
-
-  // this `session` is from the root loader - server-side
-  // therefore, it can safely be used to conditionally render
-  // SSR pages without issues with hydration
 
   return ( 
           <form onSubmit={handleEmailLogin} >

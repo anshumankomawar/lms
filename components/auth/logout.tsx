@@ -1,9 +1,9 @@
 'use client' 
 
-import { useSupabase } from './supabase-provider';
+import { useSupabase } from '../supabase-provider';
 
 // Supabase auth needs to be triggered client-side
-export default function Login() {
+export default function Logout() {
   const { supabase, session } = useSupabase();
 
   const handleLogout = async () => {
@@ -14,8 +14,5 @@ export default function Login() {
     }
   };
 
-  // this `session` is from the root loader - server-side
-  // therefore, it can safely be used to conditionally render
-  // SSR pages without issues with hydration
   return (<button onClick={handleLogout}>Logout</button>);
 }

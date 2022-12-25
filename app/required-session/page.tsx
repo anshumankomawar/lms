@@ -1,6 +1,6 @@
 import 'server-only';
 
-import Logout from '../../components/logout';
+import Logout from '../../components/auth/logout';
 
 export const revalidate = 0;
 
