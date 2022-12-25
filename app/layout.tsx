@@ -22,7 +22,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     <html lang="en">
       <head />
       <body>
-        <div className="bg-white">
+        <div className="bg-white ${gilroy.className} font-bold">
           <SupabaseProvider session={session}>
             <SupabaseListener serverAccessToken={session?.access_token} />
               {children}

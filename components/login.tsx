@@ -3,6 +3,7 @@
 import { useSupabase } from './supabase-provider';
 import React, { useState } from "react";
 
+
 // Supabase auth needs to be triggered client-side
 export default function Login() {
   const { supabase, session } = useSupabase();
@@ -24,8 +25,6 @@ export default function Login() {
       console.log("THIS DOESNT SWORK");
       console.log({ error });
     }
-
-    console.log("THIS WORKS");
   };
 
   const signUp = async () => {
@@ -52,21 +51,21 @@ export default function Login() {
   // SSR pages without issues with hydration
 
   return ( 
-          <form onSubmit={handleEmailLogin}>
+          <form onSubmit={handleEmailLogin} >
             <input type="text"
               id="email"
-                className="w-full p-2 text-sm border-b border-gray-100 outline-none"
+                className="w-full p-2 text-xs border-b border-gray-100 outline-none font-light text-lightcharcoal-200 placeholder:text-slate"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="email" />
              <input type="text"
-              id="password"
-                className="w-full p-2 text-sm border-b border-gray-100 outline-none"
+                id="password"
+                type="password"
+                className="w-full p-2 text-xs border-b border-gray-100 outline-none font-light text-lightcharcoal-200 placeholder:text-slate"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="password" />
              <button
-                 //onClick={handleEmailLogin}
                  type="submit"
                  className="invisible"
              />
