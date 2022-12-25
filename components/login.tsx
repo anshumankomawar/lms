@@ -9,7 +9,8 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
 
-  const handleEmailLogin = async () => {
+  const handleEmailLogin = async (event: any) => {
+    event.preventDefault();
     console.log("handleEmailLogin");
     console.log("email: ", email);
     console.log("password: ", password);
@@ -51,7 +52,7 @@ export default function Login() {
   // SSR pages without issues with hydration
 
   return ( 
-          <>
+          <form onSubmit={handleEmailLogin}>
             <input type="text"
               id="email"
                 className="w-full p-2 text-sm border-b border-gray-100 outline-none"
@@ -65,9 +66,10 @@ export default function Login() {
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="password" />
              <button
-                 onClick={handleEmailLogin}
-                 className="px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700"
+                 //onClick={handleEmailLogin}
+                 type="submit"
+                 className="invisible"
              />
-        </>
+        </ form>
   );
 }
